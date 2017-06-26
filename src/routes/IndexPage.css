@@ -27,3 +27,10 @@
 .list code {
   background: #f7f7f7;
 }
+:global(.ant-row){
+  margin-left: -8px;
+  margin-right: -8px;
+}
+:global(.ant-row > div){
+  padding: 0 8px;
+}

@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './Footer.css';
+import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+const {Footer} = Layout;
 
-function Footer() {
+function Footers({location}) {
   return (
-    <div className={styles.normal}>
-      Component: Footer
-    </div>
+    <Footer style={{ textAlign: 'center' }}>
+      Ant Admin ©2017 Created by 632281949@qq.com
+    </Footer>
   );
 }
-
-export default Footer;
+export default Footers;

@@ -1,0 +1,25 @@
+
+.normal {
+  position: relative;
+  height:100%;
+}
+.content{
+  width: 380px;
+  height: 300px;
+  margin: auto;
+  position: absolute;
+  top:0px;
+  left:0px;
+  bottom:0px;
+  right:0px;
+  background: #fff;
+  padding: 40px;
+  box-shadow: 0 0 100px rgba(0,0,0,.08);
+  border-radius: 4px;
+}
+.loginFormButton{
+  width:100%;
+}
+.loginFormForgot{
+  float:right;
+}

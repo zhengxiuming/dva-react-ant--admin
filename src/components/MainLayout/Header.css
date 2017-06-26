@@ -1,3 +1,10 @@
-
-.normal {
+.trigger{
+	font-size: 18px;
+  	line-height: 64px;
+  	padding: 0 16px;
+  	cursor: pointer;
+  	transition: #212121 .3s;
 }
+.trigger:hover{
+	color:#108ee9;
+};
