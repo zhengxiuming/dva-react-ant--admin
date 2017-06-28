@@ -5,7 +5,13 @@ const {Header,Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
-function Headers({location,collapsed,toggle}) {
+function Headers({location,collapsed,toggle,onHandleClick}) {
+  function logout(e) {
+    if(e.key=='setting:4'){
+      //调用父级的方法
+      onHandleClick();
+    }
+  }
   return (
     <div className={styles.normal}>
     <Header style={{ background: '#fff', padding: 0 }}>
@@ -15,7 +21,7 @@ function Headers({location,collapsed,toggle}) {
         onClick={toggle}
       />
       <Menu style={{float:"right",marginTop:'16px',marginRight:"16px"}}
-            mode="horizontal"
+            mode="horizontal" onClick={logout.bind()}
           >
             <SubMenu title={<span><Icon type="user" />个人信息</span>}>
               <MenuItemGroup title="用户中心">

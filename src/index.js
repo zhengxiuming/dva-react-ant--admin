@@ -16,8 +16,7 @@ const app = dva({
 app.use(createLoading());
 
 // 3. Models
-app.model(require("./models/users"));
-app.model(require("./models/Login"));
+app.model(require("./models/Main"));
 
 // 4. Router
 app.router(require('./router'));

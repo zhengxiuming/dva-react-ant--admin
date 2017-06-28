@@ -1,0 +1,16 @@
+.normal {
+  height: 100%
+}
+:global(.ant-layout-sider-collapsed .anticon){
+  font-size: 16px;
+  margin-left: 8px;
+}
+:global(.ant-layout-sider-collapsed .nav-text){
+  display: none;
+}
+:global(.ant-layout-sider-collapsed .nav-text:after){
+  display: none;
+}
+:global(.ant-layout-sider-collapsed .ant-menu-submenu-title:after){
+  display: none!important;
+}

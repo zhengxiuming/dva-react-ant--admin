@@ -20,6 +20,7 @@ export default {
   },
   subscriptions: {
     setup({dispatch,history}){
+      console.log('=-=-=-=')
       return history.listen(({pathname,query})=>{
         if(pathname==='/Home'){
           dispatch({type:'fetch',payload:query})

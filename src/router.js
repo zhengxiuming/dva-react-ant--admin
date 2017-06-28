@@ -1,27 +1,49 @@
 import React from 'react';
-import { Router, Route } from 'dva/router';
-import IndexPage from './routes/IndexPage';
-import Home from "./routes/Home.js";
-import Login from "./routes/Login.js";
+import {Router, Route} from 'dva/router';
+import Main from "./routes/Main.js";
 
-function RouterConfig({ history }) {
-  return (
-    <Router history={history}>
-      <Route path="/"  component={IndexPage}/>
-      <Route path="/Home" component={IndexPage} />
-      <Route path="/icon" component={Home} />
-      <Route path="/loading" component={Home} />
-      <Route path="/dialog" component={Home} />
-      <Route path="/standard" component={Home} />
-      <Route path="/highTable" component={Home} />
-      <Route path="/barChart" component={Home} />
-      <Route path="/pieChart" component={Home} />
-      <Route path="/areaChart" component={Home} />
-      <Route path="/form" component={Home} />
-      <Route path="/login" component={Login} />
-      <Route path="/error" component={Home} />
-      <Route path="/Animation" component={Home} />
-    </Router>
-  );
-}
-export default RouterConfig;
+
+const registerModel = (app, model) => {
+  if (!(app._models.filter(m => m.namespace === model.namespace).length === 1)) {
+    app.model(model)
+  }
+};
+
+
+const Routers = function ({ history, app }) {
+  const routes = [
+    {
+      path: '/',
+      component: Main,
+      getIndexRoute (nextState, cb) {
+        require.ensure([], require => {
+          registerModel(app, require('./models/Home'));
+          cb(null, { component: require('./routes/Home') })
+        }, 'Home')
+      },
+      childRoutes: [
+        {
+          path: 'Home',
+          getComponent (nextState, cb) {
+            require.ensure([], require => {
+              registerModel(app, require('./models/Home'));
+              cb(null, require('./routes/Home'))
+            }, 'Home')
+          },
+        },
+        {
+          path: 'Login',
+          getComponent (nextState, cb) {
+            require.ensure([], require => {
+              registerModel(app, require('./models/Login'));
+              cb(null, require('./routes/Login'))
+            }, 'Login')
+          },
+        },
+      ],
+    },
+  ];
+  return <Router history={history} routes={routes} />
+};
+export default Routers
+

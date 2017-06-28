@@ -1,8 +1,11 @@
+/**
+ * Created by zhengxiuming on 2017/6/27.
+ */
 import * as user from '../services/users';
 import {queryURL} from '../utils/common';
 import { routerRedux } from 'dva/router';
 export default {
-  namespace: 'Login',
+  namespace: 'common',
   state: {
 
   },

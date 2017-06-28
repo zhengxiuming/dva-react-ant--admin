@@ -52,7 +52,7 @@ class Login extends Component{
                 <Checkbox>记住密码</Checkbox>
               )}
               <a className={styles.loginFormForgot} href="##">忘记密码</a>
-              <Button loading={loading} type="primary" htmlType="submit" className={styles.loginFormButton}>
+              <Button loading={this.props.loading} type="primary" htmlType="submit" className={styles.loginFormButton}>
                 登录
               </Button>
               <a href="##">现在去注册</a>
@@ -69,9 +69,10 @@ class Login extends Component{
 }
 
 function mapStateToProps(state) {
-  console.log(state.Login);
+  const {data} =state.Login;
   return {
-
+    loading:state.loading.models.Login,
+    data
   };
 }
 
