@@ -11,7 +11,7 @@ dva&amp;ant-design&amp;react->管理后台脚手架
 
 1、git clone https://github.com/zhengxiuming/dva-react-ant--admin.git
 
-2、npm install || yarn install 
+2、npm install 或 yarn install 
 
 3、npm start
 
