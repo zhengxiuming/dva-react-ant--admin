@@ -1,5 +1,6 @@
 # dva-react-ant--admin
-dva&amp;ant-design&amp;react->管理后台脚手架
+
+简介： 一个使用了dva、ant-design和react的管理后台脚手架
 
 ## 相关工具
 
