@@ -62,19 +62,19 @@ function Side({location,collapsed,mode}) {
                   <Menu.Item key="/barChart">
                     <Link to="/barChart">
                       <Icon type="bar-chart" />
-                      LineChart
+                      BarChart
                     </Link>
                   </Menu.Item>
                   <Menu.Item key="/pieChart">
                     <Link to="/pieChart">
                       <Icon type="pie-chart" />
-                      BarChart
+                      PieChart
                     </Link>
                     </Menu.Item>
-                  <Menu.Item key="/areaChart">
-                    <Link to="/areaChart">
-                      <Icon type="area-chart" />
-                      AreaChart
+                  <Menu.Item key="/lineChart">
+                    <Link to="/lineChart">
+                      <Icon type="line-chart" />
+                      LineChart
                     </Link>
                   </Menu.Item>
                 </SubMenu>

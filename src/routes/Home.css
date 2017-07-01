@@ -33,3 +33,28 @@
 :global(.ant-row > div){
   padding: 0 8px;
 }
+.info{
+  font-size: 1rem;
+  color: #212121;
+  margin-bottom: 20px;
+}
+.info p{
+  color: darkgray;
+  font-size: 0.6rem;
+}
+:global(.ant-carousel > div){
+  height: 540px;
+}
+.headline{
+  display: inline-block;
+  margin-left: 16px;
+
+}
+.headline > h3{
+  font-size: 15px;
+  color: #212121;
+}
+.headline > p{
+  font-size: 12px;
+  color: gray;
+}

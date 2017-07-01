@@ -3,7 +3,11 @@
  */
 
 import * as MainLayout from './MainLayout/index';
+import * as Charts from './charts/index';
+import * as HomeComponent from './Home/index';
 
 export {
-  MainLayout
+  MainLayout,
+  Charts,
+  HomeComponent
 }

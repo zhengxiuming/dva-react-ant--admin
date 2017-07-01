@@ -17,9 +17,9 @@ const Routers = function ({ history, app }) {
       component: Main,
       getIndexRoute (nextState, cb) {
         require.ensure([], require => {
-          registerModel(app, require('./models/Home'));
-          cb(null, { component: require('./routes/Home') })
-        }, 'Home')
+          registerModel(app, require('./models/Main'));
+          cb(null, { component: require('./routes/Main') })
+        }, 'Main')
       },
       childRoutes: [
         {
@@ -40,6 +40,42 @@ const Routers = function ({ history, app }) {
             }, 'Login')
           },
         },
+        {
+          path: 'barChart',
+          getComponent (nextState, cb) {
+            require.ensure([], require => {
+              registerModel(app, require('./models/charts/barChart'));
+              cb(null, require('./routes/Charts/barChart'))
+            }, 'barChart')
+          },
+        },
+        {
+          path: 'pieChart',
+          getComponent (nextState, cb) {
+            require.ensure([], require => {
+              registerModel(app, require('./models/charts/pieChart'));
+              cb(null, require('./routes/Charts/pieChart'))
+            }, 'pieChart')
+          },
+        },
+        {
+          path: 'lineChart',
+          getComponent (nextState, cb) {
+            require.ensure([], require => {
+              registerModel(app, require('./models/charts/lineChart'));
+              cb(null, require('./routes/Charts/lineChart'))
+            }, 'lineChart')
+          },
+        },
+        {
+          path: 'form',
+          getComponent (nextState, cb) {
+            require.ensure([], require => {
+              registerModel(app, require('./models/Form'));
+              cb(null, require('./routes/Form'))
+            }, 'Form')
+          },
+        }
       ],
     },
   ];

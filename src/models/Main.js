@@ -17,7 +17,6 @@ export default {
   effects: {
     *query({payload}, {call, put}){
       const data = yield call(query);
-      console.log('data', data.data);
       const loginStatus = data.data;
       if (loginStatus.success) {
         yield put({
