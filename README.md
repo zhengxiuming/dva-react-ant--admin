@@ -2,7 +2,7 @@
 
 简介： 一个使用了dva、ant-design和react等其他包的管理后台脚手架
 
-## 相关工具
+### 相关工具
 
 1、react
 
@@ -10,7 +10,7 @@
 
 3、ant-Design
 
-## 本地开发
+### 本地开发
 
 1、git clone https://github.com/zhengxiuming/dva-react-ant--admin.git
 
@@ -18,11 +18,11 @@
 
 3、npm start
 
-## 编译打包
+### 编译打包
 
 npm build
 
-## 项目中遇到的问题
+### 项目中遇到的问题
 
 1、fetch本身是接受不到cookie,需要在请求的时候加上 'credentials': 'include'
 
