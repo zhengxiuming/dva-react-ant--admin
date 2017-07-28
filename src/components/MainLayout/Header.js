@@ -1,15 +1,26 @@
 import React from 'react';
 import styles from './Header.css';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-const {Header,Content, Footer, Sider } = Layout;
+import { Layout, Menu, Breadcrumb, Icon,Modal } from 'antd';
+const {Header,Content, Footer, Sider} = Layout;
+
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
+const confirm =Modal.confirm;
 
 function Headers({location,collapsed,toggle,onHandleClick}) {
   function logout(e) {
     if(e.key=='setting:4'){
       //调用父级的方法
-      onHandleClick();
+      confirm({
+        title:'你确认要退出吗？',
+        content:'',
+        onOk(){
+          onHandleClick();
+        },
+        onCancel(){
+        //
+        }
+      });
     }
   }
   return (

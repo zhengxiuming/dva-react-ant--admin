@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import {connect} from 'dva';
 import styles from './Form.less';
-import {Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete, Card} from 'antd';
+import {Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete, Card,Table} from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
@@ -53,19 +53,66 @@ class FormPage extends Component {
   constructor(props){
     super(props);
     this.state = {
-
-    }
+      confirmDirty: false,
+      autoCompleteResult: [],
+      tableData:[],
+      loading:true
+    };
   }
-  state = {
-    confirmDirty: false,
-    autoCompleteResult: [],
-  };
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
+      var residence=values.residence;
+      this.setState({
+        tableData:[
+          {
+            key:'1',
+            name:'email',
+            value:values.email
+          },
+          {
+            key:'2',
+            name:'password',
+            value:values.password
+          },
+          {
+            key:'3',
+            name:'confirm',
+            value:values.confirm
+          },
+          {
+            key:'4',
+            name:'nickname',
+            value:values.nickname
+          },
+          {
+            key:'5',
+            name:'residence',
+            value:residence[0]+'/'+residence[1]
+          },
+          {
+            key:'6',
+            name:'phone',
+            value:'+'+values.prefix+'-'+values.phone
+          },
+          {
+            key:'7',
+            name:'website',
+            value:values.website
+          },
+          {
+            key:'8',
+            name:'captcha',
+            value:values.captcha
+          },
+          {
+            key:'9',
+            name:'agreement',
+            value:values.agreement+''
+          }
+        ],
+        loading:false
+      })
     });
   };
   handleConfirmBlur = (e) => {
@@ -101,7 +148,7 @@ class FormPage extends Component {
   render() {
     const {getFieldDecorator} = this.props.form;
     const {autoCompleteResult} = this.state;
-
+    console.log(this.state);
     const formItemLayout = {
       labelCol: {
         xs: {span: 24},
@@ -281,9 +328,12 @@ class FormPage extends Component {
             <Button type="primary" htmlType="submit" size="large">注册</Button>
           </FormItem>
         </Form>
-        <div style={{margin: '20px 100px'}}>
+        <div style={{margin: '20px 200px'}}>
           <Card bordered={true} style={{minHeight: "400px"}}>
-            <Table dataSource={tableData} columns={columns} />
+            <div>
+              <h3 style={{color:'#ccc',marginBottom:'20px'}}>这里是您提交的数据展示</h3>
+            </div>
+            <Table dataSource={this.state.tableData} pagination={false} columns={columns} loading={this.state.loading} showHeader={false}/>
           </Card>
         </div>
       </div>

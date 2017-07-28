@@ -72,10 +72,13 @@ class Home extends Component{
                   <p>Home -> Message 2017-06-30</p>
                 </Timeline.Item>
                 <Timeline.Item color="green">
-                  ReCharts
+                  <p>ReCharts 2017-07-03</p>
+                </Timeline.Item>
+                <Timeline.Item color="green">
+                  <p>Form 2017-07-03</p>
                 </Timeline.Item>
                 <Timeline.Item color="red" dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}>
-                  Form
+                  <p>Table 2017-07-21</p>
                 </Timeline.Item>
               </Timeline>
             </Card>

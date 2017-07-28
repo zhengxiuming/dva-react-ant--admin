@@ -18,6 +18,10 @@ export default {
         type:'fetchLogin',
         payload:data
       });
+      if (!data){
+        throw '用户名或者密码不正确';
+        return false;
+      }
       if(data.success){
         const from=queryURL('from');
         if(from){
@@ -26,7 +30,7 @@ export default {
           yield put(routerRedux.push('/Home'));
         }
       }else{
-        throw data
+        throw data;
       }
     }
   },
